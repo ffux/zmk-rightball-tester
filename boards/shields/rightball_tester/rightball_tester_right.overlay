@@ -1,0 +1,34 @@
+#include "rightball_tester.dtsi"
+
+/ {
+    kscan0: kscan0 {
+        compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "row2col";
+        wakeup-source;
+
+        col-gpios
+            = <&pro_micro 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            ;
+
+        row-gpios
+            = <&pro_micro 9 GPIO_ACTIVE_HIGH>
+            ;
+    };
+};
+
+&matrix_transform0 {
+    col-offset = <2>;
+};
+
+&physical_layout_rightball_tester {
+    kscan = <&kscan0>;
+};
+// == Input devices ==
+// Enabling input-split for its own input devices
+// Adding input devices and assigning them to input-split
+&input_split_right0 {
+    status = "okay";
+    device = <&input_device_right0>;
+};
+
