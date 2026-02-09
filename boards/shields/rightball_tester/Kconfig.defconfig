@@ -2,7 +2,7 @@ if SHIELD_RIGHTBALL_TESTER_LEFT
 
 # Name must be less than 16 characters long!
 config ZMK_KEYBOARD_NAME
-    default "rightball tester"
+    default "rightball_tst"
 
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
